@@ -18,10 +18,10 @@ import scala.Tuple2;
 
 import com.ravi.sparkspring.poc.config.ApplicationConfiguration;
 
-@Component
+/*@Component*/
 public class WordCountStreamJob {
     
-    @Autowired
+   /* @Autowired
     JavaStreamingContext javaStreamingContext;
     
     @Autowired
@@ -76,5 +76,5 @@ public class WordCountStreamJob {
 		javaStreamingContext.start();
 		javaStreamingContext.awaitTermination();
 
-    }
+    }*/
 }

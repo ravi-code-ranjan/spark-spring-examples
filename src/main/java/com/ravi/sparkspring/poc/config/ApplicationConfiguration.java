@@ -39,7 +39,7 @@ public class ApplicationConfiguration {
     private Integer sparkStreamHostedPort;
     
     @Value("${spark.streamstoragelevel}")
-    private Long sparkStreamStorageLevel;
+    private String sparkStreamStorageLevel;
     
     @Value("${app.word}")
     private String inputString;
@@ -53,6 +53,7 @@ public class ApplicationConfiguration {
                 .setAppName(appName)
                 .setSparkHome(sparkHome)
                 .setMaster(masterUri);
+        sparkConf.set("spark.driver.allowMultipleContexts", "true");
 
         return sparkConf;
     }
@@ -62,11 +63,11 @@ public class ApplicationConfiguration {
         return new JavaSparkContext(sparkConf());
     }
 
-    @Bean
+/*    @Bean
     public JavaStreamingContext javaStreamingContext() {
         return new JavaStreamingContext(sparkConf(), 
         		new Duration(sparkStreamDuration));
-    }
+    }*/
     
     @Bean
     public SparkSession sparkSession() {
@@ -98,7 +99,7 @@ public class ApplicationConfiguration {
 		return sparkStreamHostedPort;
 	}
 
-	public Long getSparkStreamStorageLevel() {
+	public String getSparkStreamStorageLevel() {
 		return sparkStreamStorageLevel;
 	}
 }
