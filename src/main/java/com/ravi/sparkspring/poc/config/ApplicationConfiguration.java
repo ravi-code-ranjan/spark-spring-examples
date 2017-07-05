@@ -3,6 +3,8 @@ package com.ravi.sparkspring.poc.config;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
+import org.apache.spark.streaming.Duration;
+import org.apache.spark.streaming.api.java.JavaStreamingContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -27,6 +29,18 @@ public class ApplicationConfiguration {
     @Value("${master.uri:local}")
     private String masterUri;
     
+    @Value("${spark.streamduration}")
+    private Long sparkStreamDuration;
+    
+    @Value("${spark.streamhostservice}")
+    private String sparkStreamHostedService;
+    
+    @Value("${spark.streamhostport}")
+    private Integer sparkStreamHostedPort;
+    
+    @Value("${spark.streamstoragelevel}")
+    private Long sparkStreamStorageLevel;
+    
     @Value("${app.word}")
     private String inputString;
     
@@ -49,6 +63,12 @@ public class ApplicationConfiguration {
     }
 
     @Bean
+    public JavaStreamingContext javaStreamingContext() {
+        return new JavaStreamingContext(sparkConf(), 
+        		new Duration(sparkStreamDuration));
+    }
+    
+    @Bean
     public SparkSession sparkSession() {
         return SparkSession
                 .builder()
@@ -56,7 +76,7 @@ public class ApplicationConfiguration {
                 .appName("Java Spark Ravi")
                 .getOrCreate();
     }
-
+    
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
@@ -68,5 +88,17 @@ public class ApplicationConfiguration {
 
 	public String getFileWordCountPath() {
 		return fileWordCountPath;
+	}
+
+	public String getSparkStreamHostedService() {
+		return sparkStreamHostedService;
+	}
+
+	public Integer getSparkStreamHostedPort() {
+		return sparkStreamHostedPort;
+	}
+
+	public Long getSparkStreamStorageLevel() {
+		return sparkStreamStorageLevel;
 	}
 }
