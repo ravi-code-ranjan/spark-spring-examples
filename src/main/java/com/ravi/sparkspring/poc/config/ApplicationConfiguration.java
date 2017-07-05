@@ -41,6 +41,12 @@ public class ApplicationConfiguration {
     @Value("${spark.streamstoragelevel}")
     private String sparkStreamStorageLevel;
     
+    @Value("${crime.input}")
+    private String crimeAnalysisInput;
+    
+    @Value("${olympics.input}")
+    private String olympicsAnalysisInput;
+    
     @Value("${app.word}")
     private String inputString;
     
@@ -101,5 +107,13 @@ public class ApplicationConfiguration {
 
 	public String getSparkStreamStorageLevel() {
 		return sparkStreamStorageLevel;
+	}
+
+	public String getCrimeAnalysisInput() {
+		return crimeAnalysisInput;
+	}
+	
+	public String getOlympicsAnalysisInput() {
+		return olympicsAnalysisInput;
 	}
 }
