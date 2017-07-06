@@ -29,7 +29,8 @@ public class PocApplication implements CommandLineRunner {
     	//sparkJobMediatorService.testDailyShowData();  issue in this job date format issue
     	
     	//sparkJobMediatorService.testAnalyseTravelData();
+    	//sparkJobMediatorService.testAnalyseWeatherData();
     	
-    	sparkJobMediatorService.testAnalyseWeatherData();
+    	sparkJobMediatorService.testAnalyseSocialMediaData();
     } 
 }

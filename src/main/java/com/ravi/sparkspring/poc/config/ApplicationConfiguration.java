@@ -56,6 +56,9 @@ public class ApplicationConfiguration {
     @Value("${weatherdata.input}")
     private String weatherDataAnalysisInput;
     
+    @Value("${socialmediadata.input}")
+    private String socailFrndsDataAnalysisInput;
+    
     @Value("${app.word}")
     private String inputString;
     
@@ -136,5 +139,9 @@ public class ApplicationConfiguration {
 
 	public String getWeatherDataAnalysisInput() {
 		return weatherDataAnalysisInput;
+	}
+
+	public String getSocailFrndsDataAnalysisInput() {
+		return socailFrndsDataAnalysisInput;
 	}
 }
