@@ -20,9 +20,14 @@ public class PocApplication implements CommandLineRunner {
 	
     @Override
     public void run(String... args) throws Exception {
-    	sparkJobMediatorService.testJobWordCount();
-    	sparkJobMediatorService.testlineCount();
-    	sparkJobMediatorService.testCrimeData();
-    	sparkJobMediatorService.testOlympicsData();
+    	
+    	//sparkJobMediatorService.testJobWordCount();
+    	//sparkJobMediatorService.testlineCount();
+    	//sparkJobMediatorService.testCrimeData();
+    	//sparkJobMediatorService.testOlympicsData();
+    	
+    	//sparkJobMediatorService.testDailyShowData();  issue in this job date format issue
+    	
+    	sparkJobMediatorService.testAnalyseTravelData();
     } 
 }

@@ -47,6 +47,12 @@ public class ApplicationConfiguration {
     @Value("${olympics.input}")
     private String olympicsAnalysisInput;
     
+    @Value("${dailyshow.input}")
+    private String dailyShowsAnalysisInput;
+    
+    @Value("${traveldata.input}")
+    private String travelDataAnalysisInput;
+    
     @Value("${app.word}")
     private String inputString;
     
@@ -115,5 +121,13 @@ public class ApplicationConfiguration {
 	
 	public String getOlympicsAnalysisInput() {
 		return olympicsAnalysisInput;
+	}
+
+	public String getDailyShowsAnalysisInput() {
+		return dailyShowsAnalysisInput;
+	}
+
+	public String getTravelDataAnalysisInput() {
+		return travelDataAnalysisInput;
 	}
 }
