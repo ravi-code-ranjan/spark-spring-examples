@@ -73,8 +73,8 @@ public class AnalysisOlympicsData {
 		System.out.println("########## For all country a given Sports " + sports +" #########");
 		
         for (String key : result.keySet()) {
-        	System.out.println("Word :::: " + key);
-        	System.out.println("Count :::: " + result.get(key));
+        	System.out.println("Key :::: " + key);
+        	System.out.println("Value :::: " + result.get(key));
         }
 		
 	}
@@ -116,8 +116,8 @@ public class AnalysisOlympicsData {
 		System.out.println("########## All Medals in all years for India #########");
 		
         for (String key : result.keySet()) {
-        	System.out.println("Word :::: " + key);
-        	System.out.println("Count :::: " + result.get(key));
+        	System.out.println("Key :::: " + key);
+        	System.out.println("Value :::: " + result.get(key));
         }
 	}
 
@@ -158,8 +158,8 @@ public class AnalysisOlympicsData {
 		System.out.println("########## For all country in all Sports #########");
 		
         for (String key : result.keySet()) {
-        	System.out.println("Word :::: " + key);
-        	System.out.println("Count :::: " + result.get(key));
+        	System.out.println("Key :::: " + key);
+        	System.out.println("Value :::: " + result.get(key));
         }
 }
 }

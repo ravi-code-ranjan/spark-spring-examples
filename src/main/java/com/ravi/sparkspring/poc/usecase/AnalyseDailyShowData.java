@@ -87,8 +87,8 @@ public class AnalyseDailyShowData {
 		System.out.println("########## Sorted Record of knowledge, ocupation ######## " );
 		
         for (Integer key : result.keySet()) {
-        	System.out.println("Word :::: " + key);
-        	System.out.println("Count :::: " + result.get(key));
+        	System.out.println("Key :::: " + key);
+        	System.out.println("Value :::: " + result.get(key));
         }	
     }
 }

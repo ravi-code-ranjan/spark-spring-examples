@@ -53,6 +53,9 @@ public class ApplicationConfiguration {
     @Value("${traveldata.input}")
     private String travelDataAnalysisInput;
     
+    @Value("${weatherdata.input}")
+    private String weatherDataAnalysisInput;
+    
     @Value("${app.word}")
     private String inputString;
     
@@ -129,5 +132,9 @@ public class ApplicationConfiguration {
 
 	public String getTravelDataAnalysisInput() {
 		return travelDataAnalysisInput;
+	}
+
+	public String getWeatherDataAnalysisInput() {
+		return weatherDataAnalysisInput;
 	}
 }

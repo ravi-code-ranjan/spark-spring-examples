@@ -7,6 +7,7 @@ import com.ravi.sparkspring.poc.job.LineCountFilter;
 import com.ravi.sparkspring.poc.job.WordCountJob;
 import com.ravi.sparkspring.poc.usecase.AnalyseDailyShowData;
 import com.ravi.sparkspring.poc.usecase.AnalyseTravelData;
+import com.ravi.sparkspring.poc.usecase.AnalyseWeatherData;
 import com.ravi.sparkspring.poc.usecase.AnalysisCrimeData;
 import com.ravi.sparkspring.poc.usecase.AnalysisOlympicsData;
 
@@ -30,6 +31,9 @@ public class SparkJobMediatorService {
 	
 	@Autowired
 	AnalyseTravelData analyseTravelData;
+	
+	@Autowired
+	AnalyseWeatherData analyseWeatherData;
 	
 /*	@Autowired
 	WordCountStreamJob wordCountStreamJob;*/
@@ -65,6 +69,10 @@ public class SparkJobMediatorService {
 	
 	public void testAnalyseTravelData(){
 		analyseTravelData.analyseTravelData();
+	}
+	
+	public void testAnalyseWeatherData(){
+		analyseWeatherData.analyseWeatherData();
 	}
 	
 }
