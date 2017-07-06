@@ -3,8 +3,6 @@ package com.ravi.sparkspring.poc.config;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
-import org.apache.spark.streaming.Duration;
-import org.apache.spark.streaming.api.java.JavaStreamingContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -64,6 +62,12 @@ public class ApplicationConfiguration {
     
     @Value("${sensordata.input2}")
     private String sensorDataAnalysisInput2;
+    
+    @Value("${numberdata.input1}")
+    private String numberDataAnalysisInput1;
+    
+    @Value("${numberdata.input2}")
+    private String numberDataAnalysisInput2;
     
     @Value("${app.word}")
     private String inputString;
@@ -157,5 +161,13 @@ public class ApplicationConfiguration {
 
 	public String getSensorDataAnalysisInput2() {
 		return sensorDataAnalysisInput2;
+	}
+
+	public String getNumberDataAnalysisInput1() {
+		return numberDataAnalysisInput1;
+	}
+
+	public String getNumberDataAnalysisInput2() {
+		return numberDataAnalysisInput2;
 	}
 }
