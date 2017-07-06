@@ -59,6 +59,12 @@ public class ApplicationConfiguration {
     @Value("${socialmediadata.input}")
     private String socailFrndsDataAnalysisInput;
     
+    @Value("${sensordata.input1}")
+    private String sensorDataAnalysisInput;
+    
+    @Value("${sensordata.input2}")
+    private String sensorDataAnalysisInput2;
+    
     @Value("${app.word}")
     private String inputString;
     
@@ -143,5 +149,13 @@ public class ApplicationConfiguration {
 
 	public String getSocailFrndsDataAnalysisInput() {
 		return socailFrndsDataAnalysisInput;
+	}
+
+	public String getSensorDataAnalysisInput() {
+		return sensorDataAnalysisInput;
+	}
+
+	public String getSensorDataAnalysisInput2() {
+		return sensorDataAnalysisInput2;
 	}
 }
