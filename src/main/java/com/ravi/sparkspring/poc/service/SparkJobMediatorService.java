@@ -11,6 +11,7 @@ import com.ravi.sparkspring.poc.usecase.AnalyseNumberData;
 import com.ravi.sparkspring.poc.usecase.AnalyseSensorData;
 import com.ravi.sparkspring.poc.usecase.AnalyseSocialMediaData;
 import com.ravi.sparkspring.poc.usecase.AnalyseTravelData;
+import com.ravi.sparkspring.poc.usecase.AnalyseUberData;
 import com.ravi.sparkspring.poc.usecase.AnalyseWeatherData;
 import com.ravi.sparkspring.poc.usecase.AnalysisCrimeData;
 import com.ravi.sparkspring.poc.usecase.AnalysisOlympicsData;
@@ -50,6 +51,9 @@ public class SparkJobMediatorService {
 	
 	@Autowired
 	WordCountStreamJob wordCountStreamJob;
+	
+	@Autowired
+	AnalyseUberData analyseUberData;
 	
 	public void testJobWordCount(){
 		wordCountJob.count();
@@ -99,4 +103,10 @@ public class SparkJobMediatorService {
 	public void testSocialNumberData(){
 		analyseNumberData.analyseNumberData();
 	}
+	
+	public void testUberAnalyticsData(){
+		analyseUberData.analyseUberData();
+	}
 }
+
+

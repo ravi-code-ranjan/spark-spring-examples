@@ -35,8 +35,10 @@ public class PocApplication implements CommandLineRunner {
     	
     	//sparkJobMediatorService.testAnalyseSensorData();
     	
-    	sparkJobMediatorService.testSocialNumberData();
+    	//sparkJobMediatorService.testSocialNumberData();
     	
-    	sparkJobMediatorService.testJobWordCountStream();
+    	sparkJobMediatorService.testUberAnalyticsData();
+    	
+    	//sparkJobMediatorService.testJobWordCountStream();
     } 
 }

@@ -71,6 +71,9 @@ public class ApplicationConfiguration {
     @Value("${numberdata.input2}")
     private String numberDataAnalysisInput2;
     
+    @Value("${uber.data}")
+    private String uberData;
+    
     @Value("${app.word}")
     private String inputString;
     
@@ -175,5 +178,9 @@ public class ApplicationConfiguration {
 
 	public String getNumberDataAnalysisInput2() {
 		return numberDataAnalysisInput2;
+	}
+
+	public String getUberData() {
+		return uberData;
 	}
 }
