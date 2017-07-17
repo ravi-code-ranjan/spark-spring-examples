@@ -3,6 +3,8 @@ package com.ravi.sparkspring.poc.config;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
+import org.apache.spark.streaming.Duration;
+import org.apache.spark.streaming.api.java.JavaStreamingContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -74,28 +76,32 @@ public class ApplicationConfiguration {
     
     @Value("${file.path}")
     private String fileWordCountPath;
+    
+    JavaSparkContext javaSparkContext;
 
     @Bean
     public SparkConf sparkConf() {
-        SparkConf sparkConf = new SparkConf()
+    	SparkConf sparkconf = new SparkConf()
                 .setAppName(appName)
                 .setSparkHome(sparkHome)
                 .setMaster(masterUri);
-        sparkConf.set("spark.driver.allowMultipleContexts", "true");
-
-        return sparkConf;
+        sparkconf
+        		.set("spark.driver.allowMultipleContexts", "true");
+        
+        return sparkconf;
     }
 
     @Bean
     public JavaSparkContext javaSparkContext() {
-        return new JavaSparkContext(sparkConf());
+    	javaSparkContext = new JavaSparkContext(sparkConf());
+        return javaSparkContext;
     }
 
-/*    @Bean
+    @Bean
     public JavaStreamingContext javaStreamingContext() {
-        return new JavaStreamingContext(sparkConf(), 
+        return new JavaStreamingContext(javaSparkContext, 
         		new Duration(sparkStreamDuration));
-    }*/
+    }
     
     @Bean
     public SparkSession sparkSession() {

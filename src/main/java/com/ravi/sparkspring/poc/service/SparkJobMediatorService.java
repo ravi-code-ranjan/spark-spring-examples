@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.ravi.sparkspring.poc.job.LineCountFilter;
 import com.ravi.sparkspring.poc.job.WordCountJob;
+import com.ravi.sparkspring.poc.job.WordCountStreamJob;
 import com.ravi.sparkspring.poc.usecase.AnalyseDailyShowData;
 import com.ravi.sparkspring.poc.usecase.AnalyseNumberData;
 import com.ravi.sparkspring.poc.usecase.AnalyseSensorData;
@@ -47,21 +48,21 @@ public class SparkJobMediatorService {
 	@Autowired
 	AnalyseNumberData analyseNumberData;
 	
-/*	@Autowired
-	WordCountStreamJob wordCountStreamJob;*/
+	@Autowired
+	WordCountStreamJob wordCountStreamJob;
 	
 	public void testJobWordCount(){
 		wordCountJob.count();
 	}
 	
-/*	public void testJobWordCountStream(){
+	public void testJobWordCountStream(){
 		try {
 			wordCountStreamJob.countInStream();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}*/
+	}
 	
 	public void testlineCount(){	
 		lineCountFilter.count();
