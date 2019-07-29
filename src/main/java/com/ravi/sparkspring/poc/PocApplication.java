@@ -21,7 +21,7 @@ public class PocApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
     	
-    	//sparkJobMediatorService.testJobWordCount();
+    	sparkJobMediatorService.testMarketData();
     	//sparkJobMediatorService.testlineCount();
     	//sparkJobMediatorService.testCrimeData();
     	//sparkJobMediatorService.testOlympicsData();
@@ -37,7 +37,7 @@ public class PocApplication implements CommandLineRunner {
     	
     	//sparkJobMediatorService.testSocialNumberData();
     	
-    	sparkJobMediatorService.testUberAnalyticsData();
+    	//sparkJobMediatorService.testUberAnalyticsData();
     	
     	//sparkJobMediatorService.testJobWordCountStream();
     } 
