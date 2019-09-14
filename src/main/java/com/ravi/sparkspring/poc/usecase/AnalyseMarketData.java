@@ -1,5 +1,6 @@
 package com.ravi.sparkspring.poc.usecase;
 
+import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.Function;
@@ -23,19 +24,31 @@ public class AnalyseMarketData {
 
     public void count() {
 
-        String filePath = applicationConfiguration.getFileWordCountPath();
+        //String filePath = applicationConfiguration.getFileWordCountPath();
+        String filePath = "input path";
                 
         /**
          * Approach 1 with lambdas
          */
+        
+        //to extract/filter given type of emails from a superset of very large file
 
         JavaRDD<String> textFile = javaSparkContext.textFile(filePath);
-        Function<String, Boolean> filter = k -> ( k.contains(".edu") == true);
+        Function<String, Boolean> filter = k -> ( k.split(":")[0].endsWith("edu") == true);
         
         JavaRDD<String> allCount = textFile.filter(filter);
+        //allCount.coalesce(1,true).saveAsTextFile("output path");
+        
+        //to filter only email component from the long string in smaller filtered subset
+
+        JavaRDD<String> textFile2 = javaSparkContext.textFile(filePath);
+        Function<String, Boolean> filter2 = k -> ( k.split(":")[0].endsWith("edu") == true);
+        
+        JavaRDD<String> allCount2 = textFile2.filter(filter2).map(s -> (s.split(":")[0]));
         
         System.out.println("going to save file");
-        allCount.coalesce(1,true).saveAsTextFile("exact path");
+        //allCount2.coalesce(1,true).saveAsTextFile("output path");
+        
         
         
         /**
@@ -51,7 +64,7 @@ public class AnalyseMarketData {
 				.mapToPair(split)
 				.reduceByKey(reduce);
 		
-        rddResult.coalesce(1, true).saveAsTextFile("exact path");
+        rddResult.coalesce(1, true).saveAsTextFile("C:\\\\ravi\\\\data\\\\marketting\\\\output\\\\output_email");
 
         System.out.println("File saved"); **/
     }  
@@ -61,7 +74,7 @@ public class AnalyseMarketData {
 
 		@Override
 		public Boolean call(String s1) throws Exception {
-			if(s1.endsWith(".edu") == true) {
+			if(s1.endsWith("gmail") == true) {
 				return true;
 			}
 			else
